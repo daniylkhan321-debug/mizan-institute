@@ -41,18 +41,26 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var
 .q blockquote{margin:0 0 10px;font:600 22px/2 'Amiri','Noto Naskh Arabic','Traditional Arabic',serif;color:var(--ink)}
 .q p{margin:0 0 8px;color:var(--mist)}.q figcaption{color:var(--tl);font-size:13px}
 .c .b2{margin-top:12px;width:100%}
+.tb{background:#000;font-size:13px;color:var(--mist)}.tbi{display:flex;justify-content:space-between;gap:10px;padding:6px 20px}.tbi a{color:var(--tl)}
+#menu{display:flex;gap:18px;flex-wrap:wrap}#menu a{color:var(--mist);text-decoration:none;font-size:15px}#menu a:hover{color:var(--ink)}
+.rt{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.btn.alt{background:none;border:1px solid var(--tl);color:var(--tl);margin-inline-start:8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:none;border:1px solid var(--teal);color:var(--mist);border-radius:999px;padding:6px 16px;font:inherit;cursor:pointer}.tab[aria-pressed=true]{background:var(--teal);color:var(--ink)}
+.tag{display:inline-block;font-size:12px;color:var(--tl);border:1px solid var(--teal);border-radius:999px;padding:0 10px;margin-bottom:8px}
+.cta{background:linear-gradient(135deg,#358585,#011414);border-radius:14px;padding:36px;text-align:center;margin:30px 0}.cta h2{margin-bottom:8px}.cta p{color:var(--mist);margin:0 0 18px}
+.fc{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));text-align:start;max-width:1080px;margin:0 auto 18px}.fc h4{color:var(--ink);margin:0 0 8px}.fc a{display:block;color:var(--mist);text-decoration:none;font-size:14px}
+.jn:disabled{background:#35858544;color:var(--mist);cursor:not-allowed}
 </style>
 <script>window.addEventListener("error",function(ev){var d=document.createElement("div");d.style.cssText="position:fixed;top:0;left:0;right:0;z-index:99;background:#D1634A;color:#fff;padding:8px 14px;font:14px system-ui";d.textContent="Error: "+ev.message;document.body&&document.body.appendChild(d)})</script>
 </head>
 <body>
-<header><div class="top w">
-<svg viewBox="0 0 420 120" role="img" aria-label="Mizan Institute"><g transform="translate(60 60)" fill="none" stroke="#5bbdb8" stroke-width="2"><rect x="-34" y="-34" width="68" height="68"/><rect x="-34" y="-34" width="68" height="68" transform="rotate(45)"/><circle r="22" stroke="#358585"/><path d="M-15 -8H15M0 -8V16M-9 16H9" stroke="#FAFFFF" stroke-width="2.4" stroke-linecap="round"/><path d="M-15 -8L-20 3H-10ZM15 -8L10 3H20Z" stroke="#FAFFFF" stroke-width="1.6" stroke-linejoin="round"/><circle cy="-14" r="3" fill="#D1634A" stroke="none"/></g><text x="120" y="62" font-family="Georgia,serif" font-size="40" font-weight="600" fill="#FAFFFF">Mizan</text><text x="122" y="86" font-family="Georgia,serif" font-size="15" letter-spacing="6" fill="#5bbdb8">INSTITUTE</text><text x="122" y="106" font-family="Georgia,serif" font-size="11" font-style="italic" fill="#D8EBEB">Knowledge. Understanding. Purpose.</text></svg>
-<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><nav id="lang" aria-label="Language"></nav><button id="acct" class="b3">Login</button></div>
-</div></header>
+<div class="tb"><div class="w tbi"><span>Phone / WhatsApp: +92 327 2987762</span><a href="https://wa.me/923272987762">Chat on WhatsApp</a></div></div>
+<header><div class="top w"><svg viewBox="0 0 420 120" role="img" aria-label="Mizan Institute"><g transform="translate(60 60)" fill="none" stroke="#5bbdb8" stroke-width="2"><rect x="-34" y="-34" width="68" height="68"/><rect x="-34" y="-34" width="68" height="68" transform="rotate(45)"/><circle r="22" stroke="#358585"/><path d="M-15 -8H15M0 -8V16M-9 16H9" stroke="#FAFFFF" stroke-width="2.4" stroke-linecap="round"/><path d="M-15 -8L-20 3H-10ZM15 -8L10 3H20Z" stroke="#FAFFFF" stroke-width="1.6" stroke-linejoin="round"/><circle cy="-14" r="3" fill="#D1634A" stroke="none"/></g><text x="120" y="62" font-family="Georgia,serif" font-size="40" font-weight="600" fill="#FAFFFF">Mizan</text><text x="122" y="86" font-family="Georgia,serif" font-size="15" letter-spacing="6" fill="#5bbdb8">INSTITUTE</text><text x="122" y="106" font-family="Georgia,serif" font-size="11" font-style="italic" fill="#D8EBEB">Knowledge. Understanding. Purpose.</text></svg><nav id="menu" aria-label="Main"></nav><div class="rt"><nav id="lang" aria-label="Language"></nav><button id="acct" class="b3">Login</button></div></div></header>
 <main class="w" id="app"></main>
 <main class="w" id="portal" dir="ltr" lang="en" hidden style="padding-top:30px;padding-bottom:30px"></main>
-<footer><p>Mizan Institute · Knowledge. Understanding. Purpose.</p><a href="https://wa.me/923272987762">WhatsApp +92 327 2987762</a></footer>
+<footer id="foot"></footer>
 <a class="wa" href="https://wa.me/923272987762">WhatsApp</a>
+
 <script>
 var W='https://wa.me/923272987762';
 var STD=['Arabic Language','Qur’an Recitation and Tajweed','Qur’an Translation and Tafsir','Islamic Studies','Hadith Studies','Fiqh and Usul al-Fiqh','Seerah and Islamic History'];
@@ -70,19 +78,32 @@ fq:[['كم تكلفة الدورات؟','تبدأ الدورات العادية 
 var SS=['arabic-language','quran-tajweed','quran-tafsir','islamic-studies','hadith-studies','fiqh-usul','seerah-history'],SK=['arabic-kids','quran-tajweed-kids','islamic-studies-kids','values-kids'];
 var AY=['وَقُل رَّبِّ زِدْنِي عِلْمًا','خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ','مَنْ سَلَكَ طَرِيقًا يَلْتَمِسُ فِيهِ عِلْمًا سَهَّلَ اللَّهُ لَهُ بِهِ طَرِيقًا إِلَى الْجَنَّةِ'];
 var cur='en';
-function card(t,price,L,slug){return '<article class="c"><h3>'+t+'</h3><p class="p">'+L.from+' PKR '+price+L.mo+'</p><small>'+L.fee+'</small><button class="b2" data-enrol="'+slug+'">'+L.enr+'</button><p style="margin:10px 0 0"><a href="'+W+'">'+L.ask+'</a></p></article>';}
+var GR={lang:['arabic-language'],quran:['quran-tajweed','quran-tafsir'],sci:['islamic-studies','hadith-studies','fiqh-usul','seerah-history'],kids:SK};
+var ALL=SS.map(function(sl,i){return{t:STD[i],sl:sl,p:'5,000'}}).concat(SK.map(function(sl,i){return{t:KID[i],sl:sl,p:'7,500'}}));
+var flt='all';
+var X={
+en:{nav:['Courses','Learning paths','FAQ','Contact'],tabs:{all:'All',lang:'Arabic',quran:'Qur’an',sci:'Islamic sciences',kids:'Children'},view:'View courses',pathsT:'Choose your path',cta:'Ready to begin?',ctaS:'Send an enrolment request in two minutes. The academy reviews it and confirms your fee.',f1:'Learn',f2:'Academy',f3:'Contact',live:'Live on Zoom'},
+ur:{nav:['کورسز','سیکھنے کے راستے','سوالات','رابطہ'],tabs:{all:'سب',lang:'عربی',quran:'قرآن',sci:'اسلامی علوم',kids:'بچے'},view:'کورسز دیکھیں',pathsT:'اپنا راستہ چنیں',cta:'آغاز کے لیے تیار ہیں؟',ctaS:'دو منٹ میں داخلے کی درخواست بھیجیں۔ ادارہ جائزہ لے کر فیس کی تصدیق کرے گا۔',f1:'سیکھیں',f2:'ادارہ',f3:'رابطہ',live:'زوم پر لائیو'},
+ar:{nav:['الدورات','مسارات التعلّم','الأسئلة الشائعة','تواصل'],tabs:{all:'الكل',lang:'العربية',quran:'القرآن',sci:'العلوم الشرعية',kids:'الأطفال'},view:'عرض الدورات',pathsT:'اختر مسارك',cta:'هل أنت مستعد للبدء؟',ctaS:'أرسل طلب التسجيل في دقيقتين. تراجعه الأكاديمية وتؤكد الرسوم.',f1:'تعلّم',f2:'الأكاديمية',f3:'تواصل',live:'مباشر على زووم'}};
+function card(c,L,T){return '<article class="c"><span class="tag">'+T.live+'</span><h3>'+c.t+'</h3><p class="p">'+L.from+' PKR '+c.p+L.mo+'</p><small>'+L.fee+'</small><button class="b2" data-enrol="'+c.sl+'">'+L.enr+'</button><p style="margin:10px 0 0"><a href="'+W+'">'+L.ask+'</a></p></article>';}
 function render(){
-  var L=D[cur];document.documentElement.lang=cur;document.documentElement.dir=L.dir;
-  var h='<div class="hero"><h1>'+L.hero+'</h1><p>'+L.sub+'</p><a class="btn" href="#" data-open>'+L.enrol+'</a></div>';
+  var L=D[cur],T=X[cur],ids=['courses','paths','faq','contact'];
+  document.documentElement.lang=cur;document.documentElement.dir=L.dir;
+  document.getElementById('menu').innerHTML=T.nav.map(function(n,i){return '<a href="#'+ids[i]+'" data-go="'+ids[i]+'">'+n+'</a>'}).join('');
+  var h='<div class="hero"><h1>'+L.hero+'</h1><p>'+L.sub+'</p><a class="btn" href="#courses" data-go="courses">'+T.view+'</a><a class="btn alt" href="#" data-open>'+L.enrol+'</a></div>';
   h+='<section class="qt">'+[0,1,2].map(function(i){return '<figure class="q"><blockquote lang="ar" dir="rtl">'+AY[i]+'</blockquote>'+(L.tr[i]?'<p>'+L.tr[i]+'</p>':'')+'<figcaption>'+L.ref[i]+'</figcaption></figure>'}).join('')+'</section>';
-  h+='<section><h2>'+L.std+'</h2><div class="g">'+STD.map(function(t,i){return card(t,'5,000',L,SS[i])}).join('')+'</div></section>';
-  h+='<section><h2>'+L.kids+'</h2><div class="g">'+KID.map(function(t,i){return card(t,'7,500',L,SK[i])}).join('')+'</div></section>';
+  h+='<section id="paths"><h2>'+T.pathsT+'</h2><div class="tabs">'+['all','lang','quran','sci','kids'].map(function(k){return '<button class="tab" aria-pressed="'+(flt===k)+'" data-tab="'+k+'">'+T.tabs[k]+'</button>'}).join('')+'</div></section>';
+  var list=ALL.filter(function(c){return flt==='all'||GR[flt].indexOf(c.sl)>-1});
+  h+='<section id="courses"><h2>'+L.std+'</h2><div class="g">'+list.map(function(c){return card(c,L,T)}).join('')+'</div></section>';
   h+='<section><h2>'+L.prog+'</h2><ol>'+L.st.map(function(s,i){return '<li class="s"><b class="n">'+(i+1)+'</b><span><b style="color:var(--ink)">'+s[0]+'</b><br>'+s[1]+'</span></li>'}).join('')+'</ol></section>';
-  h+='<section style="max-width:760px"><h2>'+L.faq+'</h2>'+L.fq.map(function(f){return '<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>'}).join('')+'</section>';
+  h+='<section id="faq" style="max-width:760px"><h2>'+L.faq+'</h2>'+L.fq.map(function(f){return '<details><summary>'+f[0]+'</summary><p>'+f[1]+'</p></details>'}).join('')+'</section>';
+  h+='<section id="contact"><div class="cta"><h2>'+T.cta+'</h2><p>'+T.ctaS+'</p><a class="btn" href="#" data-open>'+L.enrol+'</a><a class="btn alt" href="'+W+'">WhatsApp</a></div></section>';
   document.getElementById('app').innerHTML=h;
   document.getElementById('lang').innerHTML=Object.keys(D).map(function(k){return '<button aria-pressed="'+(k===cur)+'" data-k="'+k+'">'+D[k].n+'</button>'}).join('');
+  document.getElementById('foot').innerHTML='<div class="fc"><div><h4>'+T.f1+'</h4><a href="#courses" data-go="courses">'+T.nav[0]+'</a><a href="#paths" data-go="paths">'+T.nav[1]+'</a></div><div><h4>'+T.f2+'</h4><a href="#faq" data-go="faq">'+T.nav[2]+'</a><a href="#contact" data-go="contact">'+T.nav[3]+'</a></div><div><h4>'+T.f3+'</h4><a href="'+W+'">+92 327 2987762</a><a href="'+W+'">WhatsApp</a></div></div><p>Mizan Institute · Knowledge. Understanding. Purpose.</p>';
 }
 document.getElementById('lang').addEventListener('click',function(e){var k=e.target.getAttribute('data-k');if(k){cur=k;render();}});
+document.getElementById('app').addEventListener('click',function(e){var b=e.target.closest('[data-tab]');if(b){flt=b.dataset.tab;render();}});
 render();
 </script>
 <script>
@@ -100,30 +121,35 @@ async function aud(a,en,id){await sb.from('audit_logs').insert({actor_id:me.u.id
 async function boot(){var r=await sb.auth.getSession();me=null;if(r.data.session){var u=r.data.session.user,p=await sb.from('profiles').select('*').eq('id',u.id).single();me={u:u,p:p.data||{role:'student',full_name:''}}}AC.textContent=me?'My portal':'Login'}
 function show(v){view=v;A.hidden=v!=='site';P.hidden=v==='site';if(v!=='site')go();else window.scrollTo(0,0)}
 function authView(){return '<h2>'+(mode==='in'?'Log in':'Create your student account')+'</h2>'+(pend?'<p class="ok">Log in or create an account to request enrolment in this course.</p>':'')+M()+'<form class="f bx" data-act="auth" style="max-width:420px"><input type="hidden" name="mode" value="'+mode+'">'+(mode==='up'?'<label>Full name<input name="name" required minlength="2"></label>':'')+'<label>Email<input name="email" type="email" required></label><label>Password<input name="password" type="password" required minlength="8"></label><p><button class="b2">'+(mode==='in'?'Log in':'Create account')+'</button></p></form><p><button class="b3" data-mode="'+(mode==='in'?'up':'in')+'">'+(mode==='in'?'New student? Create an account':'Already registered? Log in')+'</button></p>'}
+function joinBtn(s,label){return '<button type="button" class="b2 jn" data-join="'+s.id+'" data-start="'+s.starts_at+'" data-end="'+s.ends_at+'" data-label="'+label+'" disabled>'+label+'</button>'}
+function tick(){var now=Date.now();document.querySelectorAll('.jn').forEach(function(b){var st=new Date(b.dataset.start).getTime(),en=new Date(b.dataset.end).getTime(),open=st-180000;if(now>en){b.disabled=true;b.textContent='Class ended'}else if(now>=open){b.disabled=false;b.textContent=b.dataset.label}else{b.disabled=true;var m=Math.ceil((open-now)/60000);b.textContent=m>=120?'Opens 3 min before start':'Opens in '+m+' min'}})}
+setInterval(tick,15000);
 async function go(){
   if(!me){P.innerHTML=authView();return}
   P.innerHTML='<p>Loading…</p>';await applyPending();var r=me.p.role,h;
   try{h=r==='admin'?await adminView():r==='teacher'?await teacherView():await studentView()}catch(x){h='<p class="err">Could not load your page. Please refresh.</p>'}
-  P.innerHTML='<div class="row"><h2>Welcome, '+e(me.p.full_name||'')+'</h2><form data-act="logout"><button class="b3">Log out</button></form></div>'+M()+h;msg='';okmsg=false}
+  P.innerHTML='<div class="row"><h2>Welcome, '+e(me.p.full_name||'')+'</h2><form data-act="logout"><button class="b3">Log out</button></form></div>'+M()+h;tick();msg='';okmsg=false}
 async function studentView(){
   var q=await Promise.all([
     sb.from('course_enrolments').select('id,status,agreed_monthly_fee,payment_status,progress_pct,courses(title,monthly_fee)').eq('student_id',me.u.id),
-    sb.from('class_sessions').select('id,starts_at,status,courses(title),session_links(zoom_url)').gte('ends_at',new Date().toISOString()).order('starts_at').limit(10),
+    sb.from('class_sessions').select('id,starts_at,ends_at,status,courses(title)').gte('ends_at',new Date().toISOString()).order('starts_at').limit(10),
     sb.from('attendance_records').select('status').eq('student_id',me.u.id),
     sb.from('announcements').select('id,title,body').order('created_at',{ascending:false}).limit(5),
-    sb.from('courses').select('id,title,monthly_fee').eq('status','published').order('title')]);
-  var en=q[0].data||[],ss=q[1].data||[],at=q[2].data||[],an=q[3].data||[],cs=q[4].data||[];
+    sb.from('courses').select('id,title,monthly_fee').eq('status','published').order('title'),
+    sb.from('teacher_students').select('teacher:profiles!teacher_id(full_name),courses(title)').eq('student_id',me.u.id)]);
+  var en=q[0].data||[],ss=q[1].data||[],at=q[2].data||[],an=q[3].data||[],cs=q[4].data||[],tc=q[5].data||[];
   var n=function(s){return at.filter(function(x){return x.status===s}).length};
-  var h='<h3>Upcoming classes</h3>'+(ss.length?ss.map(function(s){var z=one(s.session_links).zoom_url,live=s.status==='scheduled'||s.status==='rescheduled';return '<div class="bx row"><span><b>'+e(one(s.courses).title)+'</b><br>'+tm(s.starts_at)+' · <b class="'+(s.status==='cancelled'?'err':'ok')+'">'+e(s.status)+'</b></span>'+(live&&z&&z.indexOf('https://')===0?'<a class="btn" target="_blank" rel="noopener noreferrer" href="'+e(z)+'">Join Class</a>':'')+'</div>'}).join(''):'<p class="bx">No classes scheduled yet. The academy adds your timetable after your enrolment is approved.</p>');
+  var h='<h3>Upcoming classes</h3>'+(ss.length?ss.map(function(s){var live=s.status==='scheduled'||s.status==='rescheduled';return '<div class="bx row"><span><b>'+e(one(s.courses).title)+'</b><br>'+tm(s.starts_at)+' · <b class="'+(s.status==='cancelled'?'err':'ok')+'">'+e(s.status)+'</b></span>'+(live?joinBtn(s,'Join Class'):'')+'</div>'}).join(''):'<p class="bx">No classes scheduled yet. The academy adds your timetable after your enrolment is approved.</p>');
   h+='<h3>My courses</h3>'+(en.length?en.map(function(x){var c=one(x.courses);return '<div class="bx"><b>'+e(c.title)+'</b><br>Status: '+e(x.status)+' · Payment: '+e(x.payment_status)+'<br><span class="ok">'+money(x.agreed_monthly_fee||c.monthly_fee)+'</span><div style="height:8px;background:var(--bg);border-radius:4px;margin-top:8px"><div style="height:8px;border-radius:4px;background:var(--teal);width:'+Number(x.progress_pct)+'%"></div></div><small>Progress '+Number(x.progress_pct)+'%</small></div>'}).join(''):'<p class="bx">No enrolments yet. Request one below.</p>');
+  h+='<h3>My teachers</h3>'+(tc.length?tc.map(function(x){return '<div class="bx"><b>'+e(one(x.teacher).full_name)+'</b> · '+e(one(x.courses).title)+'</div>'}).join(''):'<p class="bx">No teacher assigned yet. The academy assigns one after your enrolment is approved.</p>');
   h+='<h3>Enrol in a course</h3><form class="f bx" data-act="enrol"><label>Course<select name="course_id">'+opts(cs,'id',function(c){return c.title+' — '+money(c.monthly_fee)})+'</select></label><p><button class="b2">Request enrolment</button></p><small>The academy reviews your request and confirms the final fee. Nothing is charged automatically.</small></form>';
   h+='<h3>Attendance</h3><p class="bx">'+(at.length?'Present '+n('present')+' · Late '+n('late')+' · Absent '+n('absent'):'No attendance recorded yet.')+'</p><h3>Announcements</h3>'+(an.length?an.map(function(a){return '<p class="bx"><b>'+e(a.title)+'</b><br>'+e(a.body)+'</p>'}).join(''):'<p class="bx">No announcements.</p>');
   return h}
 async function teacherView(){
-  var d=await sb.from('class_sessions').select('id,starts_at,status,courses(title),session_links(zoom_url),session_students(student:profiles!student_id(id,full_name)),attendance_records(student_id,status,note)').eq('teacher_id',me.u.id).gte('starts_at',new Date(Date.now()-172800000).toISOString()).order('starts_at').limit(20);
-  var S=d.data||[];if(!S.length)return '<p class="bx">No classes assigned yet.</p>';
-  return S.map(function(x){var z=one(x.session_links).zoom_url,done={};(x.attendance_records||[]).forEach(function(r){done[r.student_id]=r});
-    return '<form class="f bx" data-act="attend"><input type="hidden" name="session_id" value="'+x.id+'"><div class="row"><span><b>'+e(one(x.courses).title)+'</b> · '+tm(x.starts_at)+' · '+e(x.status)+'</span>'+(z&&z.indexOf('https://')===0&&x.status!=='cancelled'?'<a class="btn" target="_blank" rel="noopener noreferrer" href="'+e(z)+'">Start class</a>':'')+'</div>'+
+  var d=await sb.from('class_sessions').select('id,starts_at,ends_at,status,courses(title),session_students(student:profiles!student_id(id,full_name)),attendance_records(student_id,status,note)').eq('teacher_id',me.u.id).gte('starts_at',new Date(Date.now()-172800000).toISOString()).order('starts_at').limit(20);
+  var ms=await sb.from('teacher_students').select('student:profiles!student_id(full_name),courses(title)').eq('teacher_id',me.u.id),ml=ms.data||[];var msl='<h3>My students</h3>'+(ml.length?ml.map(function(x){return '<div class="bx">'+e(one(x.student).full_name)+' · '+e(one(x.courses).title)+'</div>'}).join(''):'<p class="bx">No students assigned yet.</p>');var S=d.data||[];if(!S.length)return msl+'<h3>My classes</h3><p class="bx">No classes assigned yet.</p>';
+  return msl+'<h3>My classes</h3>'+S.map(function(x){var done={};(x.attendance_records||[]).forEach(function(r){done[r.student_id]=r});
+    return '<form class="f bx" data-act="attend"><input type="hidden" name="session_id" value="'+x.id+'"><div class="row"><span><b>'+e(one(x.courses).title)+'</b> · '+tm(x.starts_at)+' · '+e(x.status)+'</span>'+(x.status!=='cancelled'?joinBtn(x,'Start class'):'')+'</div>'+
     (x.session_students||[]).map(function(ss){var s=ss.student||{},d0=done[s.id]||{};return '<div class="two"><span>'+e(s.full_name)+'</span><select name="s_'+e(s.id)+'">'+['present','late','absent'].map(function(v){return '<option value="'+v+'"'+((d0.status||'present')===v?' selected':'')+'>'+v+'</option>'}).join('')+'</select><input name="n_'+e(s.id)+'" placeholder="Note" value="'+e(d0.note||'')+'"></div>'}).join('')+
     ((x.session_students||[]).length?'<p><button class="b2">Save attendance</button></p>':'')+'</form>'}).join('')}
 async function adminView(){
@@ -132,10 +158,15 @@ async function adminView(){
     sb.from('course_enrolments').select('id,payment_status,student:profiles!student_id(full_name),courses(title)').in('status',['approved','active']),
     sb.from('courses').select('*').order('category').order('title'),
     sb.from('profiles').select('id,full_name').in('role',['teacher','admin']),
-    sb.from('class_sessions').select('id,starts_at,status,courses(title),teacher:profiles!teacher_id(full_name)').order('starts_at',{ascending:false}).limit(15)]);
-  var pe=q[0].data||[],ac=q[1].data||[],C=q[2].data||[],T=q[3].data||[],S=q[4].data||[];
+    sb.from('class_sessions').select('id,starts_at,status,courses(title),teacher:profiles!teacher_id(full_name)').order('starts_at',{ascending:false}).limit(15),
+    sb.from('profiles').select('id,full_name').eq('role','student'),
+    sb.from('teacher_students').select('teacher_id,student_id,course_id,teacher:profiles!teacher_id(full_name),student:profiles!student_id(full_name),courses(title)').order('created_at')]);
+  var pe=q[0].data||[],ac=q[1].data||[],C=q[2].data||[],T=q[3].data||[],S=q[4].data||[],ST=q[5].data||[],AS=q[6].data||[];
   var h='<h3>Enrolment requests</h3>'+(pe.length?pe.map(function(x){return '<form class="bx row" data-act="decide"><input type="hidden" name="id" value="'+x.id+'"><span><b>'+e(one(x.student).full_name)+'</b> · '+e(one(x.courses).title)+' · '+money(one(x.courses).monthly_fee)+'</span><span><button class="b2" value="approved">Approve</button> <button class="b3" value="rejected">Reject</button></span></form>'}).join(''):'<p class="bx">No pending requests.</p>');
-  h+='<h3>Schedule a class</h3><form class="f bx" data-act="session"><div class="two"><label>Course<select name="course_id">'+opts(C.filter(function(c){return c.status==='published'}),'id',function(c){return c.title})+'</select></label><label>Teacher<select name="teacher_id">'+opts(T,'id',function(t){return t.full_name})+'</select></label><label>Start (Pakistan time)<input type="datetime-local" name="starts" required></label><label>End (Pakistan time)<input type="datetime-local" name="ends" required></label></div><label>Zoom link<input type="url" name="zoom_url" required placeholder="https://zoom.us/j/..."></label><p><button class="b2"'+(T.length?'':' disabled')+'>Create class for approved students</button></p>'+(T.length?'':'<small>No teacher available yet.</small>')+'</form>';
+  var by={};AS.forEach(function(a){var k=a.teacher_id;by[k]=by[k]||{n:one(a.teacher).full_name,l:[]};by[k].l.push(a)});
+  h+='<h3>Assign students to teachers</h3><form class="f bx" data-act="assign"><div class="two"><label>Teacher<select name="teacher_id">'+opts(T,'id',function(t){return t.full_name})+'</select></label><label>Student<select name="student_id">'+opts(ST,'id',function(t){return t.full_name})+'</select></label><label>Course<select name="course_id">'+opts(C.filter(function(c){return c.status==='published'}),'id',function(c){return c.title})+'</select></label></div><p><button class="b2"'+(T.length&&ST.length?'':' disabled')+'>Assign student to teacher</button></p></form>';
+  h+=Object.keys(by).length?Object.keys(by).map(function(k){return '<div class="bx"><b>Teacher: '+e(by[k].n)+'</b> <small>('+by[k].l.length+' assigned)</small>'+by[k].l.map(function(a){return '<form class="row" data-act="unassign"><input type="hidden" name="t" value="'+a.teacher_id+'"><input type="hidden" name="s" value="'+a.student_id+'"><input type="hidden" name="c" value="'+a.course_id+'"><span>'+e(one(a.student).full_name)+' · '+e(one(a.courses).title)+'</span><button class="b3">Remove</button></form>'}).join('')+'</div>'}).join(''):'<p class="bx">No assignments yet.</p>';
+  h+='<h3>Schedule a class</h3><form class="f bx" data-act="session"><div class="two"><label>Course<select name="course_id">'+opts(C.filter(function(c){return c.status==='published'}),'id',function(c){return c.title})+'</select></label><label>Teacher<select name="teacher_id">'+opts(T,'id',function(t){return t.full_name})+'</select></label><label>Start (Pakistan time)<input type="datetime-local" name="starts" required></label><label>End (Pakistan time)<input type="datetime-local" name="ends" required></label></div><label>Zoom link<input type="url" name="zoom_url" required placeholder="https://zoom.us/j/..."></label><p><button class="b2"'+(T.length?'':' disabled')+'>Create class for the teacher’s assigned students</button></p>'+(T.length?'':'<small>No teacher available yet.</small>')+'</form>';
   h+=S.map(function(x){return '<form class="bx row" data-act="setstatus"><input type="hidden" name="id" value="'+x.id+'"><span>'+e(one(x.courses).title)+' · '+e(one(x.teacher).full_name)+' · '+tm(x.starts_at)+' · <b>'+e(x.status)+'</b></span><span><button class="b3" value="cancelled">Cancel</button> <button class="b3" value="completed">Complete</button></span></form>'}).join('');
   h+='<h3>Record a payment (manual)</h3>'+(ac.length?'<form class="f bx" data-act="pay"><label>Student and course<select name="enrolment_id">'+opts(ac,'id',function(x){return one(x.student).full_name+' · '+one(x.courses).title+' · '+x.payment_status})+'</select></label><div class="two"><label>Amount (PKR)<input name="amount" type="number" min="1" required></label><label>Date<input name="paid_on" type="date" required></label><label>Method<input name="method" placeholder="Cash, bank, Easypaisa"></label><label>Status<select name="status"><option>paid</option><option>partial</option><option>unpaid</option><option>waived</option></select></label></div><p><button class="b2">Save payment</button></p></form>':'<p class="bx">No approved students yet.</p>');
   h+='<h3>Courses and fees</h3>'+C.map(function(c){return '<form class="f bx" data-act="course"><input type="hidden" name="id" value="'+c.id+'"><b>'+e(c.title)+'</b> <small>starts at '+money(c.starting_fee)+'</small><div class="two"><label>Monthly fee<input name="monthly_fee" type="number" min="0" value="'+Number(c.monthly_fee)+'"></label><label>Registration<input name="registration_fee" type="number" min="0" value="'+Number(c.registration_fee)+'"></label><label>Discount<input name="discount" type="number" min="0" value="'+Number(c.discount)+'"></label><label>Status<select name="status">'+['draft','published','archived'].map(function(s){return '<option'+(c.status===s?' selected':'')+'>'+s+'</option>'}).join('')+'</select></label></div><label style="display:inline"><input type="checkbox" name="fee_confirmed" style="width:auto"'+(c.fee_confirmed?' checked':'')+'> Fee confirmed</label> <button class="b2">Save</button></form>'}).join('');
@@ -143,6 +174,8 @@ async function adminView(){
   h+='<h3>My classes (as teacher)</h3>'+await teacherView();
   return h}
 var H={
+ assign:async function(f){var r=await sb.from('teacher_students').insert({teacher_id:f.get('teacher_id'),student_id:f.get('student_id'),course_id:f.get('course_id')});if(r.error){msg=r.error.code==='23505'?'Already assigned.':'Could not assign.';return}await aud('assign','teacher_students',f.get('student_id'));msg='Assigned.';okmsg=true},
+ unassign:async function(f){await sb.from('teacher_students').delete().eq('teacher_id',f.get('t')).eq('student_id',f.get('s')).eq('course_id',f.get('c'));await aud('unassign','teacher_students',f.get('s'))},
  auth:async function(f){var em=String(f.get('email')).trim(),pw=String(f.get('password')),r;
   if(f.get('mode')==='in'){r=await sb.auth.signInWithPassword({email:em,password:pw});if(r.error){msg='Email or password is incorrect.';return}}
   else{r=await sb.auth.signUp({email:em,password:pw,options:{data:{full_name:String(f.get('name')).trim()}}});if(r.error){msg=r.error.message.indexOf('registered')>-1?'This email already has an account. Please log in.':'Could not create the account. Check your details.';return}
@@ -160,9 +193,9 @@ var H={
   var cid=f.get('course_id'),r=await sb.from('class_sessions').insert({course_id:cid,teacher_id:f.get('teacher_id'),starts_at:s.toISOString(),ends_at:en.toISOString(),timezone:'Asia/Karachi'}).select('id').single();
   if(r.error){msg='Could not create the class.';return}
   await sb.from('session_links').insert({session_id:r.data.id,zoom_url:z});
-  var st=await sb.from('course_enrolments').select('student_id').eq('course_id',cid).in('status',['approved','active']);
+  var st=await sb.from('teacher_students').select('student_id').eq('teacher_id',f.get('teacher_id')).eq('course_id',cid);
   if((st.data||[]).length)await sb.from('session_students').insert(st.data.map(function(x){return{session_id:r.data.id,student_id:x.student_id}}));
-  await aud('create_session','class_sessions',r.data.id);msg='Class created.';okmsg=true},
+  await aud('create_session','class_sessions',r.data.id);msg=(st.data||[]).length?'Class created.':'Class created, but this teacher has no assigned students for this course yet.';okmsg=true},
  setstatus:async function(f,b){var id=f.get('id');await sb.from('class_sessions').update({status:b.value}).eq('id',id);await aud('session_'+b.value,'class_sessions',id)},
  pay:async function(f){var id=f.get('enrolment_id'),am=+f.get('amount');if(!(am>0)){msg='Enter an amount above zero.';return}
   await sb.from('payments').insert({enrolment_id:id,amount:am,paid_on:f.get('paid_on'),method:String(f.get('method')||'cash'),status:f.get('status'),recorded_by:me.u.id});
@@ -176,6 +209,9 @@ AC.addEventListener('click',function(){show(view==='site'?'portal':'site');AC.te
 document.addEventListener('click',function(ev){if(ev.target.closest('[data-open]')){ev.preventDefault();show('portal');AC.textContent='Back to site'}});
 async function applyPending(){if(!pend||!me||me.p.role!=='student')return;var slug=pend;pend=null;var c=await sb.from('courses').select('id,title').eq('slug',slug).single();if(!c.data)return;var r=await sb.from('course_enrolments').insert({student_id:me.u.id,course_id:c.data.id});msg=r.error?(r.error.code==='23505'?'You have already requested '+c.data.title+'.':'Could not send your request.'):'Request sent for '+c.data.title+'. The academy will review it and confirm your fee.';okmsg=!r.error}
 document.addEventListener('click',function(ev){var b=ev.target.closest('[data-enrol]');if(b){pend=b.dataset.enrol;show('portal');AC.textContent='Back to site'}});
+
+P.addEventListener('click',async function(ev){var j=ev.target.closest('[data-join]');if(!j||j.disabled)return;var w=window.open('about:blank','_blank');var r=await sb.rpc('get_join_link',{sid:j.dataset.join});if(r.data&&String(r.data).indexOf('https://')===0&&w){w.location=r.data}else{if(w)w.close();msg='The class link opens 3 minutes before the start time.';go()}});
+document.addEventListener('click',function(ev){var g=ev.target.closest('[data-go]');if(g){ev.preventDefault();if(view!=='site'){show('site');AC.textContent=me?'My portal':'Login'}setTimeout(function(){var t=document.getElementById(g.dataset.go);if(t)t.scrollIntoView({behavior:'smooth'})},60)}});
 
 boot();
 </script>
